@@ -19,7 +19,7 @@ function ronaco.init(screenGui, options)
 	local scrollFrame = Instance.new("ScrollingFrame")
 	scrollFrame.Name = "EditorScrollFrame"
 	scrollFrame.Size = UDim2.new(1, 0, 1, 0)
-	scrollFrame.Position = UDim2.new(0, 48, 0, 0)
+	scrollFrame.Position = UDim2.new(0, 40, 0, 0)
 	scrollFrame.BackgroundTransparency = 1
 	scrollFrame.BorderSizePixel = 0
 	scrollFrame.ScrollBarThickness = 6
@@ -28,7 +28,7 @@ function ronaco.init(screenGui, options)
 	
 	local lineScroll = Instance.new("ScrollingFrame")
 	lineScroll.Name = "LineScroll"
-	lineScroll.Size = UDim2.new(0, 34, 1, 0)
+	lineScroll.Size = UDim2.new(0, 40, 1, 0)
 	lineScroll.Position = UDim2.new(0, 0, 0, 0)
 	lineScroll.BackgroundColor3 = Color3.fromRGB(32, 36, 44)
 	lineScroll.BorderSizePixel = 0
@@ -41,7 +41,7 @@ function ronaco.init(screenGui, options)
 	
 	local lineNumbers = Instance.new("TextLabel")
 	lineNumbers.Name = "LineNumbers"
-	lineNumbers.Size = UDim2.new(0, 34, 1, 0)
+	lineNumbers.Size = UDim2.new(0, 40, 1, 0)
 	lineNumbers.BackgroundColor3 = Color3.fromRGB(32, 36, 44)
 	lineNumbers.TextColor3 = Color3.fromRGB(102, 113, 132)
 	lineNumbers.Font = Enum.Font.Code
@@ -260,11 +260,11 @@ function ronaco.init(screenGui, options)
 	local function updateCanvasSize()
 		local textBounds = textbox.TextBounds
 		local newHeight = math.max(textBounds.Y, scrollFrame.AbsoluteSize.Y)
-		scrollFrame.CanvasSize = UDim2.new(0, textBounds.X + 12 + 48, 0, newHeight) 
-		lineScroll.CanvasSize = UDim2.new(0, 48, 0, newHeight)
+		scrollFrame.CanvasSize = UDim2.new(0, textBounds.X + 12 + 40, 0, newHeight) 
+		lineScroll.CanvasSize = UDim2.new(0, 40, 0, newHeight)
 
 	end
-
+	
 	scrollFrame:GetPropertyChangedSignal("CanvasPosition"):Connect(function()
 		local y = scrollFrame.CanvasPosition.Y
 		lineScroll.CanvasPosition = Vector2.new(0, y)
@@ -287,9 +287,6 @@ function ronaco.init(screenGui, options)
 			end)
 		end
 	end)
-
-	updateLineNumbers()
-	updateHighlight()
 	
 	local RunService = game:GetService("RunService")
 	local lastText = ""
