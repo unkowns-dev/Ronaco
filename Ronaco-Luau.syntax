@@ -1,13 +1,13 @@
-
 local colors = {
 	["blue"] = Color3.fromRGB(34, 255, 222),
 	["red"] = Color3.fromRGB(179, 88, 88),
 	["yellow"] = Color3.fromRGB(255, 200, 1),
 }
 
-
 syntax = {
 	["print"] = colors.blue,
+	["Color3"] = colors.blue,
+	["fromRGB"] = colors.blue,
 	["wait"] = colors.blue,
 	["if"] = colors.red,
 	["function"] = colors.red,
