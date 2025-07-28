@@ -28,7 +28,7 @@ function ronaco.init(screenGui, options)
 	
 	local lineScroll = Instance.new("ScrollingFrame")
 	lineScroll.Name = "LineScroll"
-	lineScroll.Size = UDim2.new(0, 24, 1, 0)
+	lineScroll.Size = UDim2.new(0, 34, 1, 0)
 	lineScroll.Position = UDim2.new(0, 0, 0, 0)
 	lineScroll.BackgroundColor3 = Color3.fromRGB(32, 36, 44)
 	lineScroll.BorderSizePixel = 0
@@ -41,7 +41,7 @@ function ronaco.init(screenGui, options)
 	
 	local lineNumbers = Instance.new("TextLabel")
 	lineNumbers.Name = "LineNumbers"
-	lineNumbers.Size = UDim2.new(0, 24, 1, 0)
+	lineNumbers.Size = UDim2.new(0, 34, 1, 0)
 	lineNumbers.BackgroundColor3 = Color3.fromRGB(32, 36, 44)
 	lineNumbers.TextColor3 = Color3.fromRGB(102, 113, 132)
 	lineNumbers.Font = Enum.Font.Code
@@ -158,6 +158,9 @@ function ronaco.init(screenGui, options)
 					end
 				end
 			end
+
+
+
 			if not matched then
 				for word, color in pairs(syntax) do
 					if word ~= "STR" and word ~= "NUM" and word ~= "FUNC" then
@@ -235,7 +238,6 @@ function ronaco.init(screenGui, options)
 		return table.concat(segments)
 	end
 
-	
 	local function updateLineNumbers()
 		local text = textbox.Text or ""
 		local lines = 1
@@ -270,7 +272,6 @@ function ronaco.init(screenGui, options)
 		highlightLabel.Position = UDim2.new(0, 6, 0, -y)
 		textbox.Position = UDim2.new(0, 6, 0, -y)
 	end)
-
 
 	textbox.FocusLost:Connect(function()
 		updateLineNumbers()
